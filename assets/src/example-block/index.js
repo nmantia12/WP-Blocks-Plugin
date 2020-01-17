@@ -13,26 +13,26 @@ const {
 	BlockControls,
 } = wp.editor;
 
-export const name = 'starter-kit/block';
+export const name = 'paradowski-blocks/block';
 
 export const settings = {
 
 	// The title shown in the block picker
-	title: __( 'Example Block', 'gutenberg-starter-kit' ),
+	title: __( 'Example Block', 'paradowski-blocks' ),
 
 	// A more detailed description
-	description: __( 'Example block description', 'gutenberg-starter-kit' ),
+	description: __( 'Example block description', 'paradowski-blocks' ),
 
 	// The icon, from the list of dashicons or material UI icons
 	// https://material.io/tools/icons/
-	icon: 'widget',
+	// icon: 'widget',
 
 	// The category is the section of the block picker where this shows
-	category: 'widgets',
+	category: 'paradowski',
 
 	// Keywords help users search for & find a block
 	keywords: [
-		__( 'custom block', 'gutenberg-starter-kit' ),
+		__( 'custom block', 'paradowski-blocks' ),
 	],
 
 	// Attributes define the data sources for the block
@@ -61,7 +61,7 @@ edit( { className, attributes, setAttributes } ) {
 			<InspectorControls>
 				<p>I'm in the block settings sidebar 🧐</p>
 			</InspectorControls>
-			<div className={`starter-kit-block ${className}`}>
+			<div className={`pc-block ${className}`}>
 				<RichText
 					tagName="h2"
 					value={ title }
@@ -82,7 +82,7 @@ edit( { className, attributes, setAttributes } ) {
 	save( { className, attributes } ) {
 		const { title, description } = attributes;
 
-		return <div className={`starter-kit-block ${className}`}>
+		return <div className={`pc-block ${className}`}>
 			<RichText.Content tagName="h2" value={ title } />
 			<RichText.Content tagName="p" multiline={ true } value={ description } />
 		</div>;

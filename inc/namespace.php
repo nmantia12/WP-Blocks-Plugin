@@ -1,6 +1,6 @@
 <?php
 
-namespace HM\Gutenberg_Starter_Kit;
+namespace HM\Paradowski_Blocks;
 
 /**
  * Bootstrap the plugin.
@@ -24,7 +24,7 @@ function enqueue_editor_assets() {
 	$js  = get_asset_data( 'assets/dist/main.js' );
 	$css = get_asset_data( 'assets/dist/main.css' );
 
-	$handle = 'gutenberg-starter-kit';
+	$handle = 'paradowski-blocks';
 	$deps   = [
 		'wp-i18n',
 		'wp-blocks',
@@ -34,10 +34,10 @@ function enqueue_editor_assets() {
 		'wp-edit-post',
 	];
 
-	$locale_data = gutenberg_get_jed_locale_data( 'gutenberg-starter-kit' );
+	$locale_data = wp_set_script_translations( 'paradowski-blocks' );
 
 	wp_enqueue_script( $handle, $js['src'], $deps, $js['ver'], false );
-	wp_add_inline_script( $handle, sprintf( 'wp.i18n.setLocaleData( %s, "gutenberg-starter-kit" );', wp_json_encode( $locale_data ) ), 'before' );
+	wp_add_inline_script( $handle, sprintf( 'wp.i18n.setLocaleData( %s, "paradowski-blocks" );', wp_json_encode( $locale_data ) ), 'before' );
 
 	wp_enqueue_style( $handle, $css['src'], [], $css['ver'] );
 }
@@ -54,14 +54,15 @@ function get_asset_data( $path ) {
 
 	// Get built file URL.
 	$src = plugins_url( $path, $plugin_file_path );
+	$ver = filemtime( "{$plugin_dir_path}/{$path}" );
 
-	// Use webpack dev server if SCRIPT_DEBUG or speific debug constant is true.
-	if ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ( defined( 'HM_GUTENBERG_STARTER_KIT_DEBUG' ) && HM_GUTENBERG_STARTER_KIT_DEBUG ) ) {
-		$src  = str_replace( content_url(), 'https://localhost:8884', $src );
-		$ver    = null;
-	} else {
-		$ver = filemtime( "{$plugin_dir_path}/{$path}" );
-	}
+	// // Use webpack dev server if SCRIPT_DEBUG or speific debug constant is true.
+	// if ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ( defined( 'HM_Paradowski_Blocks_DEBUG' ) && HM_Paradowski_Blocks_DEBUG ) ) {
+	// 	$src  = str_replace( content_url(), 'https://localhost:8884', $src );
+	// 	$ver    = null;
+	// } else {
+	// 	$ver = filemtime( "{$plugin_dir_path}/{$path}" );
+	// }
 
 	return [
 		'src' => $src,
@@ -77,7 +78,7 @@ function get_asset_data( $path ) {
 function enqueue_scripts() {
 	$css = get_asset_data( 'assets/dist/main.css' );
 
-	wp_enqueue_style( 'gutenberg-starter-kit', $css['src'], [], $css['ver'] );
+	wp_enqueue_style( 'paradowski-blocks', $css['src'], [], $css['ver'] );
 }
 
 /**

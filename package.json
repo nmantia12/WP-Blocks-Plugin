@@ -1,5 +1,5 @@
 {
-  "name": "gutenberg-starter-kit",
+  "name": "paradowski-blocks",
   "version": "1.0.0",
   "description": "A building block for building blocks.",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/humanmade/gutenberg-starter-kit.git"
+    "url": "git+https://github.com/humanmade/paradowski-blocks.git"
   },
   "keywords": [
     "gutenberg",
@@ -45,9 +45,9 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "webpack": "^4.5.0",
+    "webpack": "^4.41.5",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.3",
+    "webpack-dev-server": "^3.10.1",
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
