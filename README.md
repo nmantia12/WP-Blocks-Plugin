@@ -1,4 +1,4 @@
-# Gutenberg Starter Kit
+# Paradowski Blocks
 
 A basic Gutenberg plugin to get started building your own custom blocks and plugins.
 
@@ -19,8 +19,6 @@ You'll need to use the command line to start making edits so these intructions a
 
 ### Setting up and developing
 
-1. `cd` to your plugins directory in your WordPress install
-1. Run `git clone https://github.com/humanmade/paradowski-blocks.git`
 1. `cd paradowski-blocks`
 1. `npm install`
 1. `npm run build`
